@@ -26,8 +26,40 @@ default_config:
 # Discover some devices automatically
 discovery:
 
-# Sensors
+#Arlo login
+aarlo:
+ username: !secret arlo_user
+ password: !secret arlo_pass
+
+# Cameras
+camera:
+  - platform: aarlo
+    ffmpeg_arguments: '-pred 1 -q:v 2'
+
+# Alarm Control Panels
+alarm_control_panel:
+  - platform: aarlo
+    home_mode_name: disarmed
+    away_mode_name: armed
+    #trigger_time: 30
+    #alarm_volume: 8
+
+# Arlo Sensors
+binary_sensor:
+  - platform: aarlo
+    monitored_conditions:
+    - motion
+    - sound
+    - ding
+
 sensor:
+  - platform: aarlo
+    monitored_conditions:
+    - last_capture
+    - total_cameras
+    - battery_level
+    - captured_today
+    - signal_strength
   # Weather prediction
   - platform: yr
 
