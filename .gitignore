@@ -4,6 +4,7 @@
 *.db
 .HA_VERSION
 *.log
+.aarlo
 
 
 # You can whitelist files/folders with !, these 
@@ -12,7 +13,7 @@ will not be ignored.
 !.gitignore
 !*.md
 !www/
-!custom_componants/
+!custom_components/
 
 # Ignore folders.
 .storage
