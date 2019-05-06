@@ -12,7 +12,6 @@ homeassistant:
   time_zone: Europe/London
   # Customization file
   customize: !include customize.yaml
-  
   packages: !include_dir_named packages
 
 # Configure a default setup of Home Assistant (frontend, api, etc)
