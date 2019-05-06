@@ -28,40 +28,7 @@ default_config:
 # Discover some devices automatically
 discovery:
 
-#Arlo login
-aarlo:
- username: !secret arlo_user
- password: !secret arlo_pass
-
-# Cameras
-camera:
-  - platform: aarlo
-    ffmpeg_arguments: '-pred 1 -q:v 2'
-
-# Alarm Control Panels
-alarm_control_panel:
-  - platform: aarlo
-    home_mode_name: disarmed
-    away_mode_name: armed
-    #trigger_time: 30
-    #alarm_volume: 8
-
-# Arlo Sensors
-binary_sensor:
-  - platform: aarlo
-    monitored_conditions:
-    - motion
-    - sound
-    - ding
-
 sensor:
-  - platform: aarlo
-    monitored_conditions:
-    - last_capture
-    - total_cameras
-    - battery_level
-    - captured_today
-    - signal_strength
   # Weather prediction
   - platform: yr
 
@@ -69,31 +36,6 @@ sensor:
 tts:
   - platform: google_translate
   
-#tado login
-tado:
- username: !secret tado_user
- password: !secret tado_pass
-
-# Device Trackers
-device_tracker:
-  #tado tracer
-  - platform: tado
-    username: !secret tado_user
-    password: !secret tado_pass
-    home_id: !secret tado_homeid
-
-zone:
- - name: Home
-   latitude: !secret home_latitude
-   longitude: !secret home_longitude
-   radius: 100
-   icon: mdi:account-multiple
-   
- - name: Work
-   latitude: !secret work_latitude
-   longitude: !secret work_longitude
-   radius: 300
-
 group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml

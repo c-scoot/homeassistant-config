@@ -1,0 +1,14 @@
+#tado login
+tado:
+ username: !secret tado_user
+ password: !secret tado_pass
+
+# Device Trackers
+device_tracker:
+  #tado tracer
+  - platform: tado
+    username: !secret tado_user
+    password: !secret tado_pass
+    home_id: !secret tado_homeid
+    
+    
