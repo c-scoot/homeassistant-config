@@ -66,6 +66,31 @@ sensor:
 # Text to speech
 tts:
   - platform: google_translate
+  
+#tado login
+tado:
+ username: !secret tado_user
+ password: !secret tado_pass
+
+# Device Trackers
+device_tracker:
+  #tado tracer
+  - platform: tado
+    username: !secret tado_user
+    password: !secret tado_pass
+    home_id: !secret tado_homeid
+
+zone:
+ - name: Home
+   latitude: !secret home_latitude
+   longitude: !secret home_longitude
+   radius: 100
+   icon: mdi:account-multiple
+   
+ - name: Work
+   latitude: !secret work_latitude
+   longitude: !secret work_longitude
+   radius: 300
 
 group: !include groups.yaml
 automation: !include automations.yaml
