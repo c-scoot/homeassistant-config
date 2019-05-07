@@ -19,8 +19,8 @@ default_config:
 
 http:
   base_url: !secret http_baseurl
-  ssl_certificate: !secret http_cert
-  ssl_key: !secret http_certkey
+#  ssl_certificate: !secret http_cert
+#  ssl_key: !secret http_certkey
 
 # Show the introduction message on startup.
 #introduction:
