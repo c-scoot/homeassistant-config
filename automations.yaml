@@ -1,1 +1,103 @@
-[]
+#- id: '001'
+#  alias: Night Mode
+#  trigger:
+#  - at: '23:00'
+#    platform: time
+#  condition:
+#  - condition: state
+#    entity_id: group.people
+#    state: home
+#  action:
+#  - service: script.turn_on
+#    entity_id: script.arlo_control
+#    data_template:
+#      entity_id: script.arlo_control
+#      variables:
+#        arloentity: internal
+#        arlomode: armed
+- id: '002'
+  alias: Away Mode
+  trigger:
+  - entity_id: group.people
+    from: home
+    platform: state
+    to: not_home
+  condition: []
+  action:
+  - service: script.turn_on
+    entity_id: script.arlo_control
+    data_template:
+      entity_id: script.arlo_control
+      variables:
+        arloentity: internal
+        arlomode: armed
+  - service: light.turn_off
+    entity_id: all
+- id: '003'
+  alias: Home Mode (day)
+  trigger:
+  - entity_id: group.people
+    from: not_home
+    platform: state
+    to: home
+  condition:
+  - condition: time
+    after: 06:00
+    before: '23:00'
+  action:
+  - service: script.turn_on
+    entity_id: script.arlo_control
+    data_template:
+      entity_id: script.arlo_control
+      variables:
+        arloentity: internal
+        arlomode: disarmed
+- id: '003'
+  alias: Home Mode (evening)
+  trigger:
+  - entity_id: group.people
+    from: not_home
+    platform: state
+    to: home
+  condition:
+  - before: '23:00'
+    condition: time
+  - after: sunset
+    after_offset: -00:30
+    condition: sun
+  action:
+  - service: script.turn_on
+    entity_id: script.arlo_control
+    data_template:
+      entity_id: script.arlo_control
+      variables:
+        arloentity: internal
+        arlomode: disarmed
+  - service: light.turn_on
+    entity_id: light.hallway_2
+- id: '004'
+  alias: Home Mode (night)
+  trigger:
+  - entity_id: group.people
+    from: not_home
+    platform: state
+    to: home
+  condition:
+  - after: '23:00'
+    condition: time
+  action:
+  - service: script.turn_on
+    entity_id: script.home_mode_night
+    data_template:
+      entity_id: script.home_mode_night
+      variables:
+        arloentity: internal
+- id: '005'
+  alias: Backup
+  trigger:
+  - at: '05:00'
+    platform: time
+  condition: []
+  action:
+  - service: script.turn_on
+    entity_id: script.snapshot_and_cloud_backup

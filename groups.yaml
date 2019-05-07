@@ -1,0 +1,5 @@
+people:
+ name: People & Devices
+ entities:
+  - !secret person1
+  - !secret person2

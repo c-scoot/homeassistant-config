@@ -1,0 +1,23 @@
+cloud:
+  alexa:
+    filter:
+      include_domains:
+        - scripts
+        - scene
+      exclude_domains:
+        - alert
+        - automation
+        - cover
+        - fan
+        - group
+        - input_boolean
+        - light
+        - lock
+        - media_player
+        - sensor
+        - switch
+      include_entities:
+        - script.arlo_control_arm_internal
+        - script.arlo_control_disarm_internal
+        - script.arlo_control_arm_external
+        - script.arlo_control_disarm_external
