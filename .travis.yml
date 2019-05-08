@@ -6,4 +6,7 @@ before_install:
 install:
   - pip3 install homeassistant
 script:
+  - sudo mkdir /ssl/
+  - sudo touch /ssl/cert.pem
+  - sudo touch /ssl/key.pem
   - hass -c . --script check_config

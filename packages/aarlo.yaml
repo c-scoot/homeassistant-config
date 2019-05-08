@@ -32,3 +32,4 @@ sensor:
     - battery_level
     - captured_today
     - signal_strength
+

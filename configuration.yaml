@@ -17,6 +17,11 @@ homeassistant:
 # Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
 
+http:
+  base_url: !secret http_baseurl
+  ssl_certificate: !secret http_cert
+  ssl_key: !secret http_certkey
+
 # Show the introduction message on startup.
 #introduction:
 
@@ -34,6 +39,7 @@ sensor:
 # Text to speech
 tts:
   - platform: google_translate
+    service_name: google_say
   
 group: !include groups.yaml
 automation: !include automations.yaml

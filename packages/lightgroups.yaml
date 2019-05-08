@@ -1,0 +1,5 @@
+light:
+  - platform: group
+    name: LG-Hallway
+    entities:
+      - light.hallway_2
