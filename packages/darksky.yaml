@@ -1,8 +1,4 @@
 group:
-###############################################################################
-# Groups  
-############################################################################### 
-
 
   darksky:
     name: Darksky Weather
@@ -15,20 +11,41 @@ group:
       - sensor.dark_sky_temperature_high
       - sensor.dark_sky_precip_probability
       - sensor.dark_sky_wind_speed
-      - sensor.dark_sky_cloud_cover
+      - sensor.dark_sky_cloud_coverage
       - sensor.dark_sky_humidity
 
 sensor:
   - platform: darksky
     api_key: !secret darksky
+    forecast:
+      - 0
+      - 1
+      - 2
+
+    hourly_forecast:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+
+
     monitored_conditions:
       - summary
       - icon
+      - precip_type
       - precip_probability
+      - precip_intensity
       - temperature
+      - temperature_high
       - wind_speed
       - apparent_temperature
+      - apparent_temperature_high
       - cloud_cover
       - humidity
       - hourly_summary
-      - temperature_high
+      - uv_index
+
