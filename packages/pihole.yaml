@@ -3,7 +3,6 @@
 #  Sensors
 ###############################################################################
 
-    
 sensor:
   - platform: pi_hole
     host: !secret pi_hole_url
