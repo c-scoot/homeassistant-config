@@ -1,8 +1,8 @@
 sensor:
   - platform: glances
-    host: !secrets glances_host
-    username: !secrets glances_user
-    password: !secrets glances_pass
+    host: !secret glances_host
+    username: !secret glances_user
+    password: !secret glances_pass
     version: 3
     resources:
       - 'disk_use_percent'
