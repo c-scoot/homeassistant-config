@@ -31,6 +31,13 @@
       variables:
         arloentity: internal
         arlomode: armed
+  - service: script.turn_on
+    entity_id: script.arlo_control
+    data_template:
+      entity_id: script.arlo_control
+      variables:
+        arloentity: external
+        arlomode: armed
   - service: light.turn_off
     entity_id: all
 - id: '003'
@@ -95,9 +102,18 @@
 - id: '005'
   alias: Backup
   trigger:
-  - at: '05:00'
+  - at: '02:00'
     platform: time
   condition: []
   action:
   - service: script.turn_on
     entity_id: script.snapshot_and_cloud_backup
+- id: '006'
+  alias: Reboot HA
+  trigger:
+  - at: '04:00'
+    platform: time
+  condition: []
+  action:
+  - service: homeassistant.restart
+  
