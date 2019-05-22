@@ -1,4 +1,16 @@
 sensor:
   - platform: uptime
-    name: HA Uptime
+    name: HA Uptime (days)
     unit_of_measurement: days
+    
+sensor:
+  - platform: uptime
+    name: HA Uptime (hours)
+    unit_of_measurement: hours
+    
+sensor:
+  - platform: uptime
+    name: HA Uptime (minutes)
+    unit_of_measurement: minutes
+    
+    

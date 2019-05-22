@@ -8,6 +8,8 @@ influxdb:
   tags:
     instance: prod
     source: hass
+    sourcetype: arlo
+    sensor: battery
   include:
     entities:
        - sensor.aarlo_battery_level_front_door

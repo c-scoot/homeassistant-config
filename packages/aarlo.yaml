@@ -84,3 +84,29 @@ script:
         data_template:
           entity_id: "alarm_control_panel.aarlo_external"
           mode: "armed"
+          
+          
+influxdb:
+  host: 192.168.0.10
+  port: 8086
+  database: !secret influxdb_db
+  username: !secret influxdb_user
+  password: !secret influxdb_pass
+  max_retries: 3
+  tags:
+    instance: prod
+    source: hass
+    sourcetype: arlo
+    sensor: battery
+  include:
+    entities:
+       - sensor.aarlo_battery_level_front_door
+       - sensor.aarlo_battery_level_driveway
+       - sensor.aarlo_battery_level_garden_gate
+       - sensor.aarlo_battery_level_garden_rear
+       - sensor.aarlo_battery_level_hallway
+       - sensor.aarlo_battery_level_kitchen
+       - sensor.aarlo_battery_level_landing
+       - sensor.aarlo_battery_level_living_room
+
+

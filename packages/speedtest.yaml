@@ -5,3 +5,22 @@ speedtestdotnet:
     - ping
     - download
     - upload
+    
+influxdb:
+  host: 192.168.0.10
+  port: 8086
+  database: !secret influxdb_db
+  username: !secret influxdb_user
+  password: !secret influxdb_pass
+  max_retries: 3
+  tags:
+    instance: prod
+    source: hass
+    sourcetype: speedtest
+    sensor: speedtestdotnet
+  include:
+    entities:
+       - sensor.speedtest_download
+       - sensor.speedtest_upload
+       - sensor.speedtest_ping
+
