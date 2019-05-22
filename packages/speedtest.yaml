@@ -5,3 +5,16 @@ speedtestdotnet:
     - ping
     - download
     - upload
+    
+influxdb:
+  tags:
+    instance: prod
+    source: hass
+    sourcetype: speedtest
+    sensor: speedtestdotnet
+  include:
+    entities:
+       - sensor.speedtest_download
+       - sensor.speedtest_upload
+       - sensor.speedtest_ping
+

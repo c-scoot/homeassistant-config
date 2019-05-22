@@ -5,20 +5,5 @@ influxdb:
   username: !secret influxdb_user
   password: !secret influxdb_pass
   max_retries: 3
-  tags:
-    instance: prod
-    source: hass
-  include:
-    entities:
-       - sensor.aarlo_battery_level_front_door
-       - sensor.aarlo_battery_level_driveway
-       - sensor.aarlo_battery_level_garden_gate
-       - sensor.aarlo_battery_level_garden_rear
-       - sensor.aarlo_battery_level_hallway
-       - sensor.aarlo_battery_level_kitchen
-       - sensor.aarlo_battery_level_landing
-       - sensor.aarlo_battery_level_living_room
-       - sensor.speedtest_download
-       - sensor.speedtest_upload
-       - sensor.speedtest_ping
+  
 
