@@ -10,7 +10,6 @@ script:
       - service: hassio.snapshot_full
         data_template:
           name: automated backup {{ now().strftime('%Y-%m-%d') }}
-          password: !secret snapshot_password
       - delay: '00:30'
       - service: rest_command.google_backup
 
