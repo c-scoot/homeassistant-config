@@ -1,4 +1,4 @@
 dyson:
   username: !secret dyson_user
   password: !secret dyson_pass
-  language: !secert dyson_lang
+  language: !secret dyson_lang
