@@ -2,3 +2,12 @@ dyson:
   username: !secret dyson_user
   password: !secret dyson_pass
   language: !secret dyson_lang
+  
+script:
+  dyson_control_away:
+    sequence:
+      - service: dyson.set_auto_mode
+        data_template:
+          entity_id: "fan.bedroom"
+          auto_mode: "true"
+
