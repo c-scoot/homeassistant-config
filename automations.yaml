@@ -110,12 +110,12 @@
   action:
   - service: script.turn_on
     entity_id: script.snapshot_and_cloud_backup
-- id: '006'
-  alias: Reboot HA
-  trigger:
-  - at: '04:00'
-    platform: time
-  condition: []
-  action:
-  - service: homeassistant.restart
+#- id: '006'
+#  alias: Reboot HA
+#  trigger:
+#  - at: '04:00'
+#    platform: time
+#  condition: []
+#  action:
+#  - service: homeassistant.restart
   
