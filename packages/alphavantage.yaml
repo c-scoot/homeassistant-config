@@ -5,3 +5,45 @@ sensor:
       - symbol: DOM.L
         name: "Domino's Pizza Group"
         currency: GBP
+        
+sensor:
+  - platform: alpha_vantage
+    api_key: !secret alphavantage
+    symbols:
+      - symbol: CEY.L
+        name: "Centamin"
+        currency: GBP
+        
+sensor:
+  - platform: alpha_vantage
+    api_key: !secret alphavantage
+    symbols:
+      - symbol: BLND.L
+        name: "British Land"
+        currency: GBP
+        
+sensor:
+  - platform: alpha_vantage
+    api_key: !secret alphavantage
+    symbols:
+      - symbol: GRG.L
+        name: "Greggs"
+        currency: GBP
+        
+sensor:
+  - platform: alpha_vantage
+    api_key: !secret alphavantage
+    symbols:
+      - symbol: DGE.L
+        name: "Diageo"
+        currency: GBP
+        
+sensor:
+  - platform: alpha_vantage
+    api_key: !secret alphavantage
+    symbols:
+      - symbol: ULVR.L
+        name: "Unilever"
+        currency: GBP
+        
+  
