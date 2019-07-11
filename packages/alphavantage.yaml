@@ -1,6 +1,6 @@
 sensor:
   - platform: alpha_vantage
-    api_key: !secret alphaadvantage
+    api_key: !secret alphavantage
     symbols:
       - symbol: DOM.L
         name: "Domino's Pizza Group"
