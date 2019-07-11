@@ -1,0 +1,16 @@
+sensor:
+  - platform: alpha_vantage
+    api_key: !secret alphaadvantage
+    symbols:
+      - symbol: DOM.L
+        name: "Domino's Pizza Group"
+      - symbol: CEY.L
+        name: "Centamin"
+      - symbol: BLND.L
+        name: "British Land"
+      - symbol: GRG.L
+        name: "Greggs"
+      - symbol: DGE.L
+        name: "Diageo"
+      - symbol: ULVR.L
+        name: "Unilever"
