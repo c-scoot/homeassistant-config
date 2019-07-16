@@ -3,3 +3,5 @@ input_boolean:
         name: Night Mode
         initial: off
         icon: mdi:weather-night
+        
+        
