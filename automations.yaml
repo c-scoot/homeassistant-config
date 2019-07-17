@@ -160,4 +160,8 @@
       variables:
         arloentity: internal
         arlomode: disarmed
+  - service: hue.hue_activate_scene
+    data:
+      group_name: "Bedroom"  
+      scene_name: "Crabbey"
 
