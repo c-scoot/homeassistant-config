@@ -133,6 +133,18 @@
       variables:
         arloentity: internal
         arlomode: armed
+  - service: light.turn_off
+    entity_id: light.hallway
+  - service: light.turn_off
+    entity_id: light.living_room
+  - service: light.turn_off
+    entity_id: light.spare_bedroom
+  - service: light.turn_off
+    entity_id: light.bedroom
+  - service: hue.hue_activate_scene
+    data:
+      group_name: "Craig's Bedside Light"  
+      scene_name: "Bedtime"
 
 - id: '101'
   alias: Deactivate Night Mode
@@ -149,4 +161,3 @@
         arloentity: internal
         arlomode: disarmed
 
-  
