@@ -118,4 +118,35 @@
 #  condition: []
 #  action:
 #  - service: homeassistant.restart
+
+- id: '100'
+  alias: Activate Night Mode
+  trigger: 
+    platform: state
+    entity_id: input_boolean.nightmode
+    to: 'on'
+  action:
+  - service: script.turn_on
+    entity_id: script.arlo_control
+    data_template:
+      entity_id: script.arlo_control
+      variables:
+        arloentity: internal
+        arlomode: armed
+
+- id: '101'
+  alias: Deactivate Night Mode
+  trigger: 
+    platform: state
+    entity_id: input_boolean.nightmode
+    to: 'off'
+  action:
+  - service: script.turn_on
+    entity_id: script.arlo_control
+    data_template:
+      entity_id: script.arlo_control
+      variables:
+        arloentity: internal
+        arlomode: disarmed
+
   
