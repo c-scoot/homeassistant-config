@@ -10,3 +10,9 @@ zone:
    longitude: !secret work_longitude
    radius: 300
 
+ - name: Work-LR
+   latitude: !secret work_lr_latitude
+   longitude: !secret work_lr_longitude
+   radius: 200
+
+
