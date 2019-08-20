@@ -8,11 +8,11 @@ zone:
  - name: Work
    latitude: !secret work_latitude
    longitude: !secret work_longitude
-   radius: 300
+   radius: 150
 
  - name: Work-LR
    latitude: !secret work_lr_latitude
    longitude: !secret work_lr_longitude
-   radius: 200
+   radius: 100
 
 

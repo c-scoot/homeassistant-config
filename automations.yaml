@@ -133,18 +133,7 @@
       variables:
         arloentity: internal
         arlomode: armed
-  - service: light.turn_off
-    entity_id: light.hallway
-  - service: light.turn_off
-    entity_id: light.living_room
-  - service: light.turn_off
-    entity_id: light.spare_bedroom
-  - service: light.turn_off
-    entity_id: light.bedroom
-  - service: hue.hue_activate_scene
-    data:
-      group_name: "Craig's Bedside Light"  
-      scene_name: "Bedtime"
+
 
 - id: '101'
   alias: Deactivate Night Mode
@@ -160,8 +149,22 @@
       variables:
         arloentity: internal
         arlomode: disarmed
-  - service: hue.hue_activate_scene
-    data:
-      group_name: "Bedroom"  
-      scene_name: "Crabbey"
 
+- id: '500'
+  alias: Bedroom Motion
+  trigger:
+    platform: state
+    entity_id: binary_sensor.hue_motion_sensor_bedroom_motion
+    to: 'on'
+  condition:
+    condition: and
+    conditions:    
+      - condition: state
+        entity_id: input_boolean.nightmode
+        state: 'off'
+      - condition: numeric_state
+        entity_id: sensor.hue_motion_sensor_bedroom_light_level
+        below: 25
+  action:
+  - service: light.turn_on
+    entity_id: light.bedroom
